@@ -9,42 +9,32 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.fragments.R
 
-class ExampleFragment : Fragment() {
+class ExampleFragment2 : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_example, container, false)
+        return inflater.inflate(R.layout.fragment_example2, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val textView: TextView = view.findViewById(R.id.textView)
-        val button: Button = view.findViewById(R.id.btnNext)
+        val textView: TextView = view.findViewById(R.id.textView2)
 
         // Get the data from arguments
         arguments?.let {
-            val name = it.getString("keyString", null)
+            val name = it.getString("keyString", "null")
             val age = it.getInt("keyInt", -1)
 
             textView.text = "$name\n$age"
         }
-
-        // On button click, navigate to ExampleFragment2
-        button.setOnClickListener {
-            val fragment2 = ExampleFragment2.newInstance("Ali", 21)
-            childFragmentManager
-                .beginTransaction()
-                .replace(R.id.container2, fragment2)
-                .commit()
-        }
     }
 
     companion object {
-        fun newInstance(name: String, age: Int): ExampleFragment {
-            val fragment = ExampleFragment()
+        fun newInstance(name: String, age: Int): ExampleFragment2 {
+            val fragment = ExampleFragment2()
             val bundle = Bundle()
             bundle.putString("keyString", name)
             bundle.putInt("keyInt", age)

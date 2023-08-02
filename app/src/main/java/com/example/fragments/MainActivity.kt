@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, fragment)
+            .addToBackStack(null) // Optional: Add this fragment transaction to the back stack
             .commit()
 
 
