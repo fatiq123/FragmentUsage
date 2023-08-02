@@ -32,10 +32,18 @@ class ExampleFragment : Fragment() {
 
             textView.text = name + "\n" + age.toString()
         }
-
-
-
-
     }
 
+
+    companion object {
+        fun newInstance(name: String, age: Int): ExampleFragment {
+
+            val fragment = ExampleFragment()
+            val bundle = Bundle()
+            bundle.putString("keyString", name)
+            bundle.putInt("keyInt", age)
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
 }

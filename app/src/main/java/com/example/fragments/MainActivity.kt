@@ -10,12 +10,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val fragment = ExampleFragment()
+        var fragment = ExampleFragment()
+//
+//        val bundle = Bundle()
+//        bundle.putString("keyString", "Fatiq Hussnain")
+//        bundle.putInt("keyInt", 20)
+//        fragment.arguments = bundle
 
-        val bundle = Bundle()
-        bundle.putString("keyString", "Fatiq Hussnain")
-        bundle.putInt("keyInt", 20)
-        fragment.arguments = bundle
+        fragment = ExampleFragment.newInstance("fatiq hussnain", 20)
+
 
         supportFragmentManager
             .beginTransaction()
